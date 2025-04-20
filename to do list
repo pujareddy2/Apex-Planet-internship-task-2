@@ -1,0 +1,50 @@
+# ApexPlanet Internship Task 2 - Part 2: Smart To-Do List Web App
+
+This is the second part of Task 2 for the *ApexPlanet Internship, where I built an interactive and categorized **To-Do List Web App* using *HTML, **CSS, and **JavaScript*. The goal was to create a responsive, intuitive task manager to help users manage their daily activities efficiently.
+
+## Key Features
+
+- *Add New Task*: Users can add a task with:
+  - Description
+  - Date (dd-mm-yyyy format)
+  - Task Type (Personal, Work, Shopping)
+
+- *Task Categories*:
+  - Personal
+  - Work
+  - Shopping
+
+- *Filters and Sorting*:
+  - Sort tasks by category or date
+  - View “Today’s Tasks” and “All Tasks” separately
+
+- *Task Status Options*:
+  - Mark tasks as *Completed*
+  - Keep tasks as *Pending*
+  - Edit or Delete tasks
+
+- *Responsive UI*:
+  - Designed with a clean and user-friendly interface
+  - Works across various devices and screen sizes
+
+## Technologies Used
+
+- HTML5
+- CSS3 (Flexbox and Grid)
+- JavaScript (for task logic, validation, and interactivity)
+
+## How to Use
+
+1. Clone or download the repository.
+2. Open index.html in any browser.
+3. Add new tasks and manage your schedule easily!
+
+## Preview
+
+![To-Do List Screenshot](path/to/your/image.jpg) (Replace with actual image path after uploading)
+
+## Author
+
+*Puja Midde*  
+Intern at ApexPlanet  
+[LinkedIn](https://www.linkedin.com/in/puja-midde-3b6659291)
