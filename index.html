@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Contact Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <main class="center-wrapper">
+    <div class="form-container">
+      <h1 class="form-title">Contact</h1>
+
+      <form id="contactForm">
+        <div class="form-section">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required />
+        </div>
+
+        <div class="form-section">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-section">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-section">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" />
+        </div>
+
+        <div class="form-section">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" />
+        </div>
+
+        <div class="form-section">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">--Select--</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-section">
+          <label for="contact_method">Preferred Contact Method</label>
+          <select id="contact_method" name="contact_method" onchange="toggleContactField(this.value)">
+            <option value="">--Select--</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+          </select>
+        </div>
+
+        <div class="form-section" id="contactInputContainer"></div>
+
+        <div class="form-section">
+          <label for="hobbies">Hobbies</label>
+          <input type="text" id="hobbies" name="hobbies" placeholder="E.g., Reading, Traveling, Sports" />
+        </div>
+
+        <div class="form-section">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div class="form-section">
+          <label for="upload">Upload Profile Picture</label>
+          <input type="file" id="upload" name="upload" />
+        </div>
+
+        <div class="form-section">
+          <label for="range">Satisfaction Level (1-10)</label>
+          <input type="range" id="range" name="range" min="1" max="10" />
+        </div>
+
+        <div class="form-section">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <div class="form-section">
+          <label>
+            <input type="checkbox" id="terms" name="terms" required />
+            I accept the <a href="#">Terms and Conditions</a>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">🚀 Submit</button>
+      </form>
+
+      <div class="info-section">
+        <h2>📋 Additional Information</h2>
+        <p><strong>College Name:</strong> ABC Institute of Technology</p>
+        <p><strong>College Address:</strong> 123 Tech Road, Hyderabad, Telangana, India</p>
+        <p>This is to inform you that we need to collect the whole college information in this form, which will be helpful for further processes like internships, jobs, or anything related to the educational staff.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleContactField(value) {
+      const container = document.getElementById("contactInputContainer");
+      container.innerHTML = "";
+
+      if (value === "email") {
+        container.innerHTML = `
+          <label for="preferredEmail">Preferred Email</label>
+          <input type="email" id="preferredEmail" name="preferredEmail" required />
+        `;
+      } else if (value === "phone") {
+        container.innerHTML = `
+          <label for="preferredPhone">Preferred Phone</label>
+          <input type="tel" id="preferredPhone" name="preferredPhone" required />
+        `;
+      }
+    }
+
+    const form = document.getElementById("contactForm");
+
+    const validators = {
+      fullname: value => value.trim().length >= 3,
+      email: value => /^\S+@\S+\.\S+$/.test(value),
+      phone: value => /^\d{10}$/.test(value),
+      password: value => value.length >= 6,
+      age: value => !value || (value >= 1 && value <= 120)
+    };
+
+    form.addEventListener("input", e => {
+      const field = e.target;
+      const { name, value } = field;
+
+      if (validators[name]) {
+        field.style.borderColor = validators[name](value) ? "green" : "red";
+      }
+    });
+
+    form.addEventListener("submit", e => {
+      const fields = ["fullname", "email", "phone", "password", "age"];
+      let valid = true;
+
+      fields.forEach(name => {
+        const field = form.elements[name];
+        if (validators[name] && !validators[name](field.value)) {
+          field.style.borderColor = "red";
+          valid = false;
+        }
+      });
+
+      if (!valid) {
+        e.preventDefault();
+        alert("Please fix errors before submitting.");
+      }
+    });
+  </script>
+</body>
+</html>
