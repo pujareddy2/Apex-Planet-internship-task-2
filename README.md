@@ -1,5 +1,3 @@
-# Apex-Planet-internship-task-2
-A contact form project built during my ApexPlanet internship using HTML, CSS, and JavaScript. Includes input fields, form validation, file upload, and responsive design with Flexbox and CSS Grid
 # ApexPlanet Internship Task 2 - Interactive Contact Form
 
 This project is a part of my internship at *ApexPlanet* and focuses on building an interactive and responsive contact form using *HTML, **CSS, and **JavaScript*. The form includes various input fields, client-side validation, and responsive layout using Flexbox and CSS Grid.
